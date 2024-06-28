@@ -1,4 +1,5 @@
 package com.example.sudokuwebapp.api.model;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -22,6 +23,10 @@ public class Board {
     }
 
     /* Methods */
+    public Number[][] getBoard() {
+        return board;
+    }
+
     public Number getNumber(int row, int col) {
         checkValidPosition(row, col);
         return board[row][col];
@@ -42,7 +47,7 @@ public class Board {
         return board;
     }
 
-    public Number[][] newBoard(){
+    public Number[][] newBoard() {
         solvedBoard = GenerateGrid.getSolvedGrid();
         initializeBoard();
         return board;
