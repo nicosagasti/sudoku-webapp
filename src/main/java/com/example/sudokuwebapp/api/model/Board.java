@@ -80,7 +80,7 @@ public class Board {
             int col = pos[1];
             int value = solvedBoard[row][col].getValue();
             board[row][col] = new Number(value, true);
-            spareBoard[row][col] = new Number(value, true); // TODO ver si es eficiente
+            spareBoard[row][col] = new Number(value, true);
         }
     }
 
