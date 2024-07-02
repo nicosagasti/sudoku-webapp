@@ -14,7 +14,7 @@ public class BoardController {
     }
 
     @GetMapping("/getBoard")
-    public Number[][] getBoard(){
+    public Number[][] fetchBoard(){
         return board.getBoard();
     }
 

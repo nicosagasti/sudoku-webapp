@@ -9,6 +9,6 @@ public class AppConfig {
 
     @Bean
     public Board board() {
-        return new Board(9);
+        return new Board(70);
     }
 }
