@@ -24,7 +24,7 @@ public class BoardController {
         return board.newBoard();
     }
 
-    @GetMapping("/reload")
+    @GetMapping("/reloadBoard")
     public Number[][] reloadBoard() {
         return board.reloadBoard();
     }
@@ -37,10 +37,5 @@ public class BoardController {
     @PostMapping("/number/{row}/{col}")
     public boolean setNumber(@PathVariable int row, @PathVariable int col, @RequestParam int number) {
         return board.setNumber(row, col, number);
-    }
-
-    @GetMapping("/api/hello")
-    public String hello() {
-        return "Hello, the time at the server is now " + "\n";
     }
 }

@@ -1,7 +1,20 @@
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .board {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 5px;
+  grid-template-columns: repeat(9, 40px);
+  /* Ancho de cada columna */
+  grid-template-rows: repeat(9, 40px);
+  /* Alto de cada fila */
+  gap: 1px;
+  /* Espacio entre las celdas */
+  border: 2px solid #000;
+  /* Borde del tablero */
 }
 
 .row {
@@ -9,15 +22,15 @@
 }
 
 .cell {
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  /* Ancho de la celda */
+  height: 40px;
+  /* Alto de la celda */
   border: 1px solid #000;
-}
-
-.fixed {
-  color: red;
-  font-weight: bold;
+  /* Borde de cada celda */
+  font-size: 16px;
+  /* Tamaño de fuente para los números */
 }

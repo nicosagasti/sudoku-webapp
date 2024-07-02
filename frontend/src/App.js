@@ -1,38 +1,48 @@
 import React, { useState, useEffect } from 'react';
+import Board from './Board'; // Ajusta la ruta de importación según sea necesario
 
 function App() {
   const [board, setBoard] = useState([]);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     fetchBoard();
   }, []);
 
-  const fetchBoard = async () => {
-    try {
-      const response = await fetch('/getBoard');
-      const data = await response.json();
-      console.log(data);
-      setBoard(data);
+  function fetchBoard() {
+    fetch('/getBoard')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setBoard(data);
+      })
+  }
 
-    } catch (error) {
-      console.error('Error fetching the board:', error);
-    }
-  };
+  function handleClick(i, j) {
+    console.log(`Clicked on cell (${i}, ${j})`);
+  }
+
+  function reloadBoard() {
+    fetch('/reload')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Board reloaded:', data);
+        setBoard(data);
+      })
+  }
 
   return (
     <div className="App">
       <h1>Sudoku Board</h1>
-      <div className="board">
-        {board.map((row, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {row.map((cell, colIndex) => (
-              <div key={colIndex} className="cell">
-                {cell.number}
-                {cell.fixed && <span className="fixed">*</span>}
-              </div>
-            ))}
-          </div>
-        ))}
+      <div className="board-container">
+        <Board
+          grid={board}
+          onClick={(i, j) => handleClick(i, j)}
+        />
+      </div>
+      <div className="buttons">
+        <button className="reloadBoard" onClick={reloadBoard}> </button>
+        <button className= "button9" onClick={setNumber(9)}></button>
       </div>
     </div>
   );
