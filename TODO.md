@@ -2,7 +2,8 @@
 [] 
 
 # React
-[] Conectar servidor a logica frontend
+[*] Conectar servidor a logica frontend
+[] Ver reloadBoard 
 
 # Css 
-[] Iniciar Css
+[] Mejorar Css
