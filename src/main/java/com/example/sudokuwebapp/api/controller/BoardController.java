@@ -18,8 +18,7 @@ public class BoardController {
         return board.getBoard();
     }
 
-
-    @GetMapping("/new")
+    @GetMapping("/newBoard")
     public Number[][] newBoard() {
         return board.newBoard();
     }
