@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Board from './Board'; // Ajusta la ruta de importación según sea necesario
+import Board from './Board';
 
 function App() {
   const [board, setBoard] = useState([]);
@@ -27,19 +27,13 @@ function App() {
       })
         .then(response => response.json())
         .then(isWon => {
-          if (isWon) {
+          if (isWon) 
             setMessage('Congratulations! You won!');
-          } else {
-            setMessage('');
-          }
-          // Actualizar el tablero localmente
+
           const newBoard = [...board];
           newBoard[i][j] = selectedNumber;
           setBoard(newBoard);
         })
-        .catch(error => {
-          console.error('Error setting number:', error);
-        });
     }
   }
 

@@ -53,6 +53,10 @@ public class Board {
         return board;
     }
 
+    public Number[][] getSolution() {
+        return solvedBoard; 
+    }
+
     /* Private Methods */
     private boolean checkWon() {
         boolean toReturn = true;

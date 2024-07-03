@@ -28,6 +28,11 @@ public class BoardController {
         return board.reloadBoard();
     }
 
+    @GetMapping("/getSolution")
+    public Number[][] fetchSolution(){
+        return board.getSolution();
+    }
+
     @GetMapping("/number/{row}/{col}")
     public Number getNumber(@PathVariable int row, @PathVariable int col) {
         return board.getNumber(row, col);

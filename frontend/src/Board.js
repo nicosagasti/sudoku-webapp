@@ -1,5 +1,6 @@
 import React from 'react';
-import './Board.css'; // Asegúrate de tener estilos para el tablero y las celdas
+import Square from './Square';
+import './Board.css'; // Asegúrate de tener estilos para el tablero
 
 function Board({ grid, onClick }) {
     return (
@@ -7,13 +8,12 @@ function Board({ grid, onClick }) {
             {grid.map((row, i) => (
                 <div key={i} className="board-row">
                     {row.map((cell, j) => (
-                        <div
+                        <Square
                             key={j}
-                            className={`board-cell ${cell.isFixed ? 'fixed' : ''}`}
+                            value={cell.value}
+                            isFixed={cell.isFixed}
                             onClick={() => !cell.isFixed && onClick(i, j)}
-                        >
-                            {cell.value !== 0 ? cell.value : ''}
-                        </div>
+                        />
                     ))}
                 </div>
             ))}
